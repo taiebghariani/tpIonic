@@ -1,0 +1,7 @@
+{
+  "name": "tpIonic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
