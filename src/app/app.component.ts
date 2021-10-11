@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthentificationService } from './services/authentification.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private router: Router, private authServ: AuthentificationService) {
+    this.login();
+  }
+  login(){
+    if (this.authServ.getConnecte() !== 'oui') {
+      this.router.navigateByUrl('/authentification');
+    } else {
+      this.router.navigateByUrl('/menu/home');
+      }
+    }
 }
