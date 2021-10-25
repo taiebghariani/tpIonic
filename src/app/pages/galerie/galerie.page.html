@@ -4,3 +4,56 @@
     <ion-title>galerie</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <!-- <ion-label>Mot cle</ion-label> -->
+        <ion-input placeholder= "mot cle" type="text" [(ngModel)]="motCle"></ion-input>
+        <ion-button (click)="chargerImages()">OK</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-list >
+    <ion-card *ngFor="let image of dataImages">
+      <ion-card-header>
+        <ion-item>
+          <ion-avatar slot="start">
+            <ion-img [src]="image.userimageURL "></ion-img>
+          </ion-avatar>
+          <ion-label>{{image.user}}</ion-label>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-img [src]="image.previewURL"></ion-img>
+      </ion-card-content>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-button fill="outline" size="small">
+              <ion-icon name="thumbs-up"></ion-icon>
+              <ion-label>{{image.likes}}</ion-label>
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button fill="outline" size="small">
+              <ion-icon name="document-text-outline"></ion-icon>
+              <ion-label>{{image.comments}}</ion-label>
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button fill="outline" size="small">
+              <ion-icon name="download"></ion-icon>
+              <ion-label>{{image.downloads }}</ion-label>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ion-infinite-scroll threshold="100px" (ionlnfinite)="pageSuivante($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText=" Chargement ...">
+    </ion-infinite-scroll-content >
+  </ion-infinite-scroll>
+    
+</ion-content>
