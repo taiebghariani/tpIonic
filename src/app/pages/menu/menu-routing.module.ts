@@ -38,6 +38,10 @@ const routes: Routes = [
         loadChildren: () => import('../contacts/contacts.module').then(m =>
           m.ContactsPageModule)
       },
+      {
+        path: 'endroit-details',
+        loadChildren: () => import('../endroit-details/endroit-details.module').then( m => m.EndroitDetailsPageModule)
+      },
     ]
   }
 ];

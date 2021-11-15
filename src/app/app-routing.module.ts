@@ -66,6 +66,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/inscription/inscription.module').then(m =>
       m.InscriptionPageModule)
   },
+  {
+    path: 'endroit-nouveau',
+    loadChildren: () => import('./pages/endroit-nouveau/endroit-nouveau.module').then( m => m.EndroitNouveauPageModule)
+  },
+
 ];
 
 
